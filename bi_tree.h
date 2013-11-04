@@ -8,7 +8,7 @@
 #ifndef BI_TREE_H
 #define	BI_TREE_H
 
-#define ElementType int
+#define ElementType char
 
 #include<stdlib.h>
 
@@ -21,7 +21,8 @@ typedef struct TREENODE {
 typedef TreeNode * bi_tree;
 
 bi_tree create_bi_tree();
-void print_bitree_strata_seqeunce(bi_tree tr);
+bi_tree  insert_bitree(bi_tree btr, ElementType e);
+void print_bitree_strata_seqeunce(bi_tree btr);
 
 
 

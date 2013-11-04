@@ -1,0 +1,9 @@
+Exception: STATUS_ACCESS_VIOLATION at eip=00401213
+eax=00000000 ebx=00000000 ecx=61187720 edx=00000001 esi=61275990 edi=611A1E9F
+ebp=0022AC68 esp=0022AC30 program=D:\c\data_structures_2\dist\Debug\Cygwin-Windows\data_structures_2.exe, pid 4520, thread main
+cs=001B ds=0023 es=0023 fs=003B gs=0000 ss=0023
+Stack trace:
+Frame     Function  Args
+0022AC68  00401213  (00000001, 0022AC90, 20010100, 61275B32)
+0022ACF8  6100763A  (00000000, 0022CD78, 61006C50, 00000000)
+End of stack trace
