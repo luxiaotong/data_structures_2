@@ -25,3 +25,12 @@ bi_tree insert_bitree(bi_tree btr, ElementType e)
 	return btr;
 }
 
+void print_search_tree_level_order(bi_tree btr)
+{
+	while ( btr != NULL || ) {
+	}
+	
+	printf("%d", btr->element);
+	
+}
+

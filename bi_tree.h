@@ -22,7 +22,7 @@ typedef TreeNode * bi_tree;
 
 bi_tree create_bi_tree();
 bi_tree  insert_bitree(bi_tree btr, ElementType e);
-void print_bitree_strata_seqeunce(bi_tree btr);
+void print_search_tree_level_order(bi_tree btr);
 
 
 
