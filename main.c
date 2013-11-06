@@ -16,12 +16,12 @@ int main(int argc, char** argv) {
 #if 1
 	#include "bi_tree.h"
 	char ch;
-	bi_tree btr = NULL;
+	bi_search_tree bschtr = NULL;
 	
 	while ( (ch = getchar()) != '\n' ) {
-		btr = insert_bitree(btr, ch);
+		bschtr = insert_bisearch_tree(bschtr, ch);
 	}
-	printf("%c%c%c\n", btr->element, btr->right->element, btr->right->right->element);
+	print_bisearch_tree_level_order(bschtr);
 	
 #endif
 	return (EXIT_SUCCESS);
