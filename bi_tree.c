@@ -47,3 +47,25 @@ void print_bisearch_tree_level_order(bi_search_tree bschtr)
 	return;
 }
 
+bi_search_tree make_empty(bi_search_tree bschtr)
+{
+	if ( bschtr != NULL ) {
+		make_empty(bschtr->left);
+		make_empty(bschtr->right);
+		free(bschtr);
+	}
+	return NULL;
+}
+
+bi_search_tree find(bi_search_tree bschtr, ElementType e) {
+	while ( bschtr != NULL ) {
+		if ( bschtr->element == e ) {
+			break;
+		} else if ( bschtr->element > e ) {
+			bschtr = bschtr->left;
+		} else { //bschtr->element < e
+			bschtr = bschtr->right;
+		}
+	}
+	return bschtr;
+}
