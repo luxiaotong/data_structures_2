@@ -11,26 +11,39 @@ bi_tree create_bi_tree()
 	return ;
 }
 
-bi_tree insert_bitree(bi_tree btr, ElementType e)
+bi_search_tree insert_bisearch_tree(bi_search_tree bschtr, ElementType e)
 {
-	if ( btr == NULL ) {
-		btr = (bi_tree) malloc ( sizeof(bi_tree) );
-		btr->element = e;
-		btr->left = NULL;btr->right = NULL;
-	} else if ( e < btr->element ) {
-		btr->left = insert_bitree(btr->left, e);
-	} else if ( e > btr->element ) {
-		btr->right = insert_bitree(btr->right, e);
+	if ( bschtr == NULL ) {
+		bschtr = (bi_search_tree) malloc ( sizeof(TreeNode) );
+		bschtr->element = e;
+		bschtr->left = NULL;
+		bschtr->right = NULL;
+	} else if ( e < bschtr->element ) {
+		bschtr->left = insert_bisearch_tree(bschtr->left, e);
+	} else if ( e > bschtr->element ) {
+		bschtr->right = insert_bisearch_tree(bschtr->right, e);
 	}
-	return btr;
+	return bschtr;
 }
 
-void print_search_tree_level_order(bi_tree btr)
+void print_bisearch_tree_level_order(bi_search_tree bschtr)
 {
-	while ( btr != NULL || ) {
+	queue qqq = NULL;
+	bi_search_tree tmpbschtr = bschtr;
+	while ( tmpbschtr != NULL || !isempty(qqq) ) {
+		if ( tmpbschtr != NULL ) {
+			printf("%c", tmpbschtr->element);
+			if ( tmpbschtr->left != NULL ) {
+				qqq = enqueue(qqq, tmpbschtr->left);
+			}
+			if ( tmpbschtr->right != NULL ) {
+				qqq = enqueue(qqq, tmpbschtr->right);
+			}
+		}
+		tmpbschtr = front(qqq);
+		qqq = dequeue(qqq);
 	}
 	
-	printf("%d", btr->element);
-	
+	return;
 }
 

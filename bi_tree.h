@@ -18,11 +18,17 @@ typedef struct TREENODE {
 	struct TREENODE * right;
 } TreeNode;
 
+//binary tree
 typedef TreeNode * bi_tree;
 
 bi_tree create_bi_tree();
-bi_tree  insert_bitree(bi_tree btr, ElementType e);
-void print_search_tree_level_order(bi_tree btr);
+
+//binary search tree
+typedef TreeNode * bi_search_tree;
+#include "queue.h"
+
+bi_search_tree  insert_bisearch_tree(bi_search_tree bschtr, ElementType e);
+void print_bisearch_tree_level_order(bi_search_tree bschtr);
 
 
 
