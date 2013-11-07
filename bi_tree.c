@@ -68,7 +68,8 @@ bi_search_tree make_empty(bi_search_tree bschtr)
 	return NULL;
 }
 
-bi_search_tree find(bi_search_tree bschtr, ElementType e) {
+bi_search_tree find(bi_search_tree bschtr, ElementType e)
+{
 	while ( bschtr != NULL ) {
 		if ( bschtr->element == e ) {
 			break;
@@ -78,5 +79,49 @@ bi_search_tree find(bi_search_tree bschtr, ElementType e) {
 			bschtr = bschtr->right;
 		}
 	}
+	return bschtr;
+}
+
+bi_search_tree find_min(bi_search_tree bschtr)
+{
+	while ( bschtr->left != NULL ) {
+		bschtr = bschtr->left;
+	}
+	return bschtr;
+}
+
+bi_search_tree find_max(bi_search_tree bschtr)
+{
+	while ( bschtr->right != NULL ) {
+		bschtr = bschtr->right;
+	}
+	return bschtr;
+}
+
+
+bi_search_tree deletion(bi_search_tree bschtr, ElementType e)
+{
+	bi_search_tree tmp_bschtr = NULL;
+	/*
+	if ( bschtr != NULL && bschtr->element == e ) {
+		if ( bschtr->left == NULL && bschtr->right == NULL ) { //The node want to delete is a leaf
+			free(bschtr);
+			return NULL;
+		} else if ( bschtr->left != NULL && bschtr->right == NULL ) { //The node want to delete has one child
+			tmp_bschtr = bschtr;
+			bschtr = bschtr->left;
+			free(bschtr);
+			return tmp_bschtr;
+		} else if ( bschtr->left == NULL && bschtr->right != NULL ) { //The node want to delete has one child
+			tmp_bschtr = bschtr;
+			bschtr = bschtr->right;
+			free(bschtr);
+			return tmp_bschtr;
+		}
+		bi_search_tree successor_bschtr = find_min(bschtr);
+	 
+	}
+	*/	
+	tmp_bschtr = bschtr;
 	return bschtr;
 }
