@@ -30,20 +30,31 @@ void print_bisearch_tree_level_order(bi_search_tree bschtr)
 {
 	queue qqq = NULL;
 	bi_search_tree tmpbschtr = bschtr;
+	int node_in_current_level = 1;
+	int node_in_next_level = 0;
 	while ( tmpbschtr != NULL || !isempty(qqq) ) {
 		if ( tmpbschtr != NULL ) {
 			printf("%c", tmpbschtr->element);
 			if ( tmpbschtr->left != NULL ) {
 				qqq = enqueue(qqq, tmpbschtr->left);
+				node_in_next_level ++;
 			}
 			if ( tmpbschtr->right != NULL ) {
 				qqq = enqueue(qqq, tmpbschtr->right);
+				node_in_next_level ++;
+			}
+			node_in_current_level --;
+			if ( node_in_current_level == 0 ) {
+				printf("\n");
+				node_in_current_level = node_in_next_level;
+				node_in_next_level = 0;
 			}
 		}
 		tmpbschtr = front(qqq);
 		qqq = dequeue(qqq);
 	}
 	
+	printf("\n");
 	return;
 }
 

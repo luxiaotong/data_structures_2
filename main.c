@@ -22,6 +22,11 @@ int main(int argc, char** argv) {
 		bschtr = insert_bisearch_tree(bschtr, ch);
 	}
 	print_bisearch_tree_level_order(bschtr);
+	
+	bi_search_tree find_bschtr = find(bschtr, 'b');
+	printf("%c\n", find_bschtr->element);
+	
+	
 
 #endif
 	return (EXIT_SUCCESS);

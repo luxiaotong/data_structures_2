@@ -11,7 +11,7 @@ queue enqueue( queue qqq, QUEUEELEMTYPE qelem )
 	}
 	
 	queue tmpqqq = qqq;
-	while ( isempty(tmpqqq->next) ) {
+	while ( !isempty(tmpqqq->next) ) {
 		tmpqqq = tmpqqq->next;
 	}
 	
