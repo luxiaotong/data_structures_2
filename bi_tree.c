@@ -32,6 +32,8 @@ void print_bisearch_tree_level_order(bi_search_tree bschtr)
 	bi_search_tree tmpbschtr = bschtr;
 	int node_in_current_level = 1;
 	int node_in_next_level = 0;
+	
+	printf("\ntree:\n");
 	while ( tmpbschtr != NULL || !isempty(qqq) ) {
 		if ( tmpbschtr != NULL ) {
 			printf("%c", tmpbschtr->element);
@@ -102,7 +104,6 @@ bi_search_tree find_max(bi_search_tree bschtr)
 bi_search_tree deletion(bi_search_tree bschtr, ElementType e)
 {
 	bi_search_tree tmp_bschtr = NULL;
-	/*
 	if ( bschtr != NULL && bschtr->element == e ) {
 		if ( bschtr->left == NULL && bschtr->right == NULL ) { //The node want to delete is a leaf
 			free(bschtr);
@@ -110,18 +111,23 @@ bi_search_tree deletion(bi_search_tree bschtr, ElementType e)
 		} else if ( bschtr->left != NULL && bschtr->right == NULL ) { //The node want to delete has one child
 			tmp_bschtr = bschtr;
 			bschtr = bschtr->left;
-			free(bschtr);
-			return tmp_bschtr;
+			free(tmp_bschtr);
+			return bschtr;
 		} else if ( bschtr->left == NULL && bschtr->right != NULL ) { //The node want to delete has one child
 			tmp_bschtr = bschtr;
 			bschtr = bschtr->right;
-			free(bschtr);
-			return tmp_bschtr;
+			free(tmp_bschtr);
+			return bschtr;
+		} else { //The node you want to delete has two children
+			tmp_bschtr = bschtr;
+			bschtr = tmp_bschtr->left;
+			bschtr->right = tmp_bschtr->right;
+			free(tmp_bschtr);
+			return bschtr;
 		}
 		bi_search_tree successor_bschtr = find_min(bschtr);
 	 
 	}
-	*/	
-	tmp_bschtr = bschtr;
+	//tmp_bschtr = bschtr;
 	return bschtr;
 }

@@ -32,6 +32,9 @@ int main(int argc, char** argv) {
 	
 	bi_search_tree findmax_bschtr = find_max(bschtr);
 	printf("find max : %c\n", findmax_bschtr->element);
+	
+	bi_search_tree deletion_bschtr = deletion(bschtr, 'b');
+	print_bisearch_tree_level_order(deletion_bschtr);
 
 #endif
 	return (EXIT_SUCCESS);
