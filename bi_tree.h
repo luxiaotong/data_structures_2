@@ -25,15 +25,19 @@ bi_tree create_bi_tree();
 
 //binary search tree
 typedef TreeNode * bi_search_tree;
+
+#ifndef QUEUEELEMTYPE
+#define QUEUEELEMTYPE bi_search_tree
+#endif
 #include "queue.h"
 
 bi_search_tree  insert_bisearch_tree(bi_search_tree bschtr, ElementType e);
 void print_bisearch_tree_level_order(bi_search_tree bschtr);
-bi_search_tree make_empty(bi_search_tree bschtr);
-bi_search_tree find(bi_search_tree bschtr, ElementType e);
-bi_search_tree find_min(bi_search_tree bschtr);
-bi_search_tree find_max(bi_search_tree bschtr);
-bi_search_tree deletion(bi_search_tree bschtr, ElementType e);
+static bi_search_tree make_empty(bi_search_tree bschtr);
+static bi_search_tree find(bi_search_tree bschtr, ElementType e);
+static bi_search_tree find_min(bi_search_tree bschtr);
+static bi_search_tree find_max(bi_search_tree bschtr);
+static bi_search_tree deletion(bi_search_tree bschtr, ElementType e);
 
 
 

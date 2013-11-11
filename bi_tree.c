@@ -60,7 +60,7 @@ void print_bisearch_tree_level_order(bi_search_tree bschtr)
 	return;
 }
 
-bi_search_tree make_empty(bi_search_tree bschtr)
+static bi_search_tree make_empty(bi_search_tree bschtr)
 {
 	if ( bschtr != NULL ) {
 		make_empty(bschtr->left);
@@ -70,7 +70,7 @@ bi_search_tree make_empty(bi_search_tree bschtr)
 	return NULL;
 }
 
-bi_search_tree find(bi_search_tree bschtr, ElementType e)
+static bi_search_tree find(bi_search_tree bschtr, ElementType e)
 {
 	while ( bschtr != NULL ) {
 		if ( bschtr->element == e ) {
@@ -84,7 +84,7 @@ bi_search_tree find(bi_search_tree bschtr, ElementType e)
 	return bschtr;
 }
 
-bi_search_tree find_min(bi_search_tree bschtr)
+static bi_search_tree find_min(bi_search_tree bschtr)
 {
 	while ( bschtr->left != NULL ) {
 		bschtr = bschtr->left;
@@ -92,7 +92,7 @@ bi_search_tree find_min(bi_search_tree bschtr)
 	return bschtr;
 }
 
-bi_search_tree find_max(bi_search_tree bschtr)
+static bi_search_tree find_max(bi_search_tree bschtr)
 {
 	while ( bschtr->right != NULL ) {
 		bschtr = bschtr->right;
@@ -100,34 +100,99 @@ bi_search_tree find_max(bi_search_tree bschtr)
 	return bschtr;
 }
 
+static bi_search_tree deletion(bi_search_tree bschtr, ElementType e)
+{
+	
+	return NULL;
+}
 
-bi_search_tree deletion(bi_search_tree bschtr, ElementType e)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+static bi_search_tree deletion(bi_search_tree bschtr, ElementType e)
 {
 	bi_search_tree tmp_bschtr = NULL;
-	if ( bschtr != NULL && bschtr->element == e ) {
-		if ( bschtr->left == NULL && bschtr->right == NULL ) { //The node want to delete is a leaf
-			free(bschtr);
-			return NULL;
-		} else if ( bschtr->left != NULL && bschtr->right == NULL ) { //The node want to delete has one child
-			tmp_bschtr = bschtr;
-			bschtr = bschtr->left;
-			free(tmp_bschtr);
-			return bschtr;
-		} else if ( bschtr->left == NULL && bschtr->right != NULL ) { //The node want to delete has one child
-			tmp_bschtr = bschtr;
+	
+	if ( bschtr == NULL ) {
+		return NULL;
+	} else if ( bschtr->element > e ) {
+		bschtr->left = deletion(bschtr->left , e);
+	} else if ( bschtr->element < e ) {
+		bschtr->right = deletion(bschtr->right, e);
+	} else if ( bschtr->left != NULL && bschtr->right != NULL ) { //The node you want to delete has two children
+		bi_search_tree successor_bschtr = find_min(bschtr->right);
+		bschtr->element = successor_bschtr->element;
+		bschtr->right = deletion(bschtr->right, successor_bschtr->element);
+	} else { //The node want to delete has one or zero child
+		tmp_bschtr = bschtr;
+		if ( bschtr->left == NULL ) {
 			bschtr = bschtr->right;
-			free(tmp_bschtr);
-			return bschtr;
-		} else { //The node you want to delete has two children
-			tmp_bschtr = bschtr;
-			bschtr = tmp_bschtr->left;
-			bschtr->right = tmp_bschtr->right;
-			free(tmp_bschtr);
-			return bschtr;
+		} else if ( bschtr->right == NULL ) {
+			bschtr = bschtr->left;
+		} else {
+			bschtr = NULL;
 		}
-		bi_search_tree successor_bschtr = find_min(bschtr);
-	 
+		free(tmp_bschtr);
 	}
-	//tmp_bschtr = bschtr;
+	
 	return bschtr;
 }
+*/
