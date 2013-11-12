@@ -36,15 +36,19 @@ int main(int argc, char** argv) {
 	print_bisearch_tree_level_order(deletion_bschtr);
 	
 #elif 1 //avl tree
-	#include "bi_tree.h"
+	#include "avl_tree.h"
 	
-	char ch;
-	bi_search_tree avltr = NULL;
+	int input;
+	avl_tree avltr = NULL;
 	
-	while ( (ch = getchar()) != '\n' ) {
-		avltr = insert_avl_tree(avltr, ch);
+	while ( 1 ) {
+		scanf("%d", &input);
+		if ( input == 713 ) {
+			break;
+		}
+		avltr = insert_avl_tree(avltr, input);
 	}
-	print_avl_tree_level_order(avltr);
+	//print_avl_tree_level_order(avltr);
 
 #endif
 	return (EXIT_SUCCESS);
