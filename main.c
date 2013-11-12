@@ -13,7 +13,7 @@
  */
 int main(int argc, char** argv) {
 
-#if 0 //binary search tree
+#if 1 //binary search tree
 	#include "queue.h"
 	#include "bi_tree.h"
 	char ch;
@@ -35,16 +35,6 @@ int main(int argc, char** argv) {
 	
 	bi_search_tree deletion_bschtr = deletion(bschtr, 'b');
 	print_bisearch_tree_level_order(deletion_bschtr);
-#elif 1 //avl tree
-	
-	#include "avl_tree.h"
-	char ch;
-	avl_tree avltr = NULL;
-	while ( (ch = getchar()) != '\n' ) {
-		avltr = insert_avl_tree(avltr, ch);
-	}
-	printf("%c %c %c \n", avltr->element, avltr->left->element, avltr->right->element);
-	print_avl_tree_level_order(avltr);
 
 #endif
 	return (EXIT_SUCCESS);

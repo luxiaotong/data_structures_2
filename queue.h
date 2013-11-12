@@ -2,7 +2,6 @@
  * File:   queue.h
  * Author: @两荤两素三两饭
  *
- * include前请先#define QUEUEELEMTYPE
  * Created on 2013年11月6日, 下午2:40
  */
 
@@ -11,11 +10,8 @@
 
 
 #include <stdlib.h>
-
-#ifndef QUEUEELEMTYPE
-#define QUEUEELEMTYPE avl_tree
-#endif
-
+#include "bi_tree.h"
+#define QUEUEELEMTYPE bi_search_tree
 
 typedef struct QUEUENODE {
 	QUEUEELEMTYPE element;
