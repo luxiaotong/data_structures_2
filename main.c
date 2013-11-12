@@ -14,7 +14,6 @@
 int main(int argc, char** argv) {
 
 #if 1 //binary search tree
-	#include "queue.h"
 	#include "bi_tree.h"
 	char ch;
 	bi_search_tree bschtr = NULL;

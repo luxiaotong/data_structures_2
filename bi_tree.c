@@ -104,30 +104,26 @@ bi_search_tree find_max(bi_search_tree bschtr)
 bi_search_tree deletion(bi_search_tree bschtr, ElementType e)
 {
 	bi_search_tree tmp_bschtr = NULL;
-	if ( bschtr != NULL && bschtr->element == e ) {
-		if ( bschtr->left == NULL && bschtr->right == NULL ) { //The node want to delete is a leaf
-			free(bschtr);
-			return NULL;
-		} else if ( bschtr->left != NULL && bschtr->right == NULL ) { //The node want to delete has one child
-			tmp_bschtr = bschtr;
+	if ( bschtr == NULL ) {
+		return NULL;
+	} else if ( bschtr->element > e ) {
+		bschtr->left = deletion(bschtr->left, e);
+	} else if ( bschtr->element < e ) {
+		bschtr->right = deletion(bschtr->right, e);
+	} else if ( bschtr->left != NULL && bschtr->right != NULL ) { //two children
+		tmp_bschtr = find_min(bschtr->right);
+		bschtr->element = tmp_bschtr->element;
+		bschtr->right = deletion(bschtr->right, tmp_bschtr->element);
+	} else { //one or zero child
+		tmp_bschtr = bschtr;
+		if ( bschtr->left != NULL ) {
 			bschtr = bschtr->left;
-			free(tmp_bschtr);
-			return bschtr;
-		} else if ( bschtr->left == NULL && bschtr->right != NULL ) { //The node want to delete has one child
-			tmp_bschtr = bschtr;
+		} else if ( bschtr->right != NULL ) {
 			bschtr = bschtr->right;
-			free(tmp_bschtr);
-			return bschtr;
-		} else { //The node you want to delete has two children
-			tmp_bschtr = bschtr;
-			bschtr = tmp_bschtr->left;
-			bschtr->right = tmp_bschtr->right;
-			free(tmp_bschtr);
-			return bschtr;
+		} else {
+			bschtr = NULL;
 		}
-		bi_search_tree successor_bschtr = find_min(bschtr);
-	 
+		free(tmp_bschtr);
 	}
-	//tmp_bschtr = bschtr;
 	return bschtr;
 }
