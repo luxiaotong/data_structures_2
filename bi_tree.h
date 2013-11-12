@@ -34,12 +34,6 @@ bi_search_tree find_min(bi_search_tree bschtr);
 bi_search_tree find_max(bi_search_tree bschtr);
 bi_search_tree deletion(bi_search_tree bschtr, ElementType e);
 
-//avl tree
-typedef TreeNode * avl_tree;
-
-avl_tree  insert_avl_tree(avl_tree avltr, ElementType e);
-void print_avl_tree_level_order(avl_tree avltr);
-avl_tree avl_tree_deletion(avl_tree avltr, ElementType e);
 
 #include "queue.h"
 
