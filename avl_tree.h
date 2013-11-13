@@ -22,7 +22,9 @@ typedef struct AvlNode * avl_tree;
 avl_tree  insert_avl_tree(avl_tree avltr, ElementType e);
 void print_avl_tree_level_order(avl_tree avltr);
 avl_tree deletion_avl_tree(avl_tree avltr, ElementType e);
-
+int height_avl_tree(avl_tree avltr);
+avl_tree rotate_single_with_left(avl_tree avltr);
+avl_tree rotate_single_with_right(avl_tree avltr);
 #include "avl_tree_queue.h"
 
 #endif	/* AVL_TREE_H */

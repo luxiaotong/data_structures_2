@@ -48,7 +48,9 @@ int main(int argc, char** argv) {
 		}
 		avltr = insert_avl_tree(avltr, input);
 	}
-	//print_avl_tree_level_order(avltr);
+	printf("%d, %d, %d", avltr->element, avltr->left->element, avltr->left->left->element);
+	//printf("%d, %d, %d", avltr->element, avltr->left->element, avltr->right->element);
+	print_avl_tree_level_order(avltr);
 
 #endif
 	return (EXIT_SUCCESS);
