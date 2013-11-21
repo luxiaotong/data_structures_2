@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /*
  * 
@@ -35,7 +36,7 @@ int main(int argc, char** argv) {
 	bi_search_tree deletion_bschtr = deletion(bschtr, 'b');
 	print_bisearch_tree_level_order(deletion_bschtr);
 	
-#elif 1 //avl tree
+#elif 0 //avl tree
 	#include "avl_tree.h"
 	
 	int input;
@@ -52,7 +53,19 @@ int main(int argc, char** argv) {
 	//printf("%d, %d, %d", avltr->element, avltr->left->element, avltr->right->element);
 	print_avl_tree_level_order(avltr);
 
+#elif 1
+	
+	#include "sorting.h"
+	
+	//insertion sort
+	int arr [] = {34, 8, 64, 51, 32, 21};
+	int len = sizeof(arr) / sizeof(arr[0]);
+	insertion_sort(arr, len);
+	print_array(arr, len);
+	
 #endif
+	//git fetch https://github.com/luxiaotong/data_structures_2.git
+	//git reset --hard origin/master
 	return (EXIT_SUCCESS);
 }
 
