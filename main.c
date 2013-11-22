@@ -58,9 +58,17 @@ int main(int argc, char** argv) {
 	#include "sorting.h"
 	
 	//insertion sort
+	/*
 	int arr [] = {34, 8, 64, 51, 32, 21};
 	int len = sizeof(arr) / sizeof(arr[0]);
 	insertion_sort(arr, len);
+	print_array(arr, len);
+	*/
+	
+	//shell sort
+	int arr [] = {81, 94, 11, 96, 12, 35, 17, 95, 28, 58, 41, 75, 15};
+	int len = sizeof(arr) / sizeof(arr[0]);
+	shell_sort(arr, len);
 	print_array(arr, len);
 	
 #endif

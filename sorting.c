@@ -2,7 +2,16 @@
 
 
 
-ElEMTYPE * insertion_sort(ElEMTYPE * arr, int len)
+void print_array(ElEMTYPE * arr, int len)
+{
+	int i = 0;
+	for ( i = 0; i < len; i ++ ) {
+		printf("%d ", arr[i]);
+	}
+	printf("\n");
+}
+
+void insertion_sort(ElEMTYPE * arr, int len)
 {
 	int i = 0, j = 0;
 	ElEMTYPE tmp = 0;
@@ -16,14 +25,28 @@ ElEMTYPE * insertion_sort(ElEMTYPE * arr, int len)
 		}
 		arr[pos] = tmp;
 	}
-	return arr;
+	return;
 }
 
-void print_array(ElEMTYPE * arr, int len)
+void shell_sort(ElEMTYPE * arr, int len)
 {
-	int i = 0;
-	for ( i = 0; i < len; i ++ ) {
-		printf("%d ", arr[i]);
+	int N = len;
+	int i = 0, j = 0, k = 0, tmp = 0, pos = 0;
+	for ( N /= 2; N > 0; N /= 2 ) {
+		for  ( k = N; k < 2*N; k ++ ) {
+			//insertion sort
+			for ( j = k; j < len; j += N ) {
+				tmp = arr[j];
+				pos = j;
+				for ( i = j - N; i >= 0 && arr[i] > tmp; i -= N ) {
+					arr[i + N] = arr[i];
+					pos = i;
+				}
+				arr[pos] = tmp;
+			}
+		}
+		print_array(arr, len);
 	}
-	printf("\n");
+	
+	return;
 }

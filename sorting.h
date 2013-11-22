@@ -13,8 +13,9 @@
 #define ElEMTYPE int
 
 
-ElEMTYPE * insertion_sort(ElEMTYPE * arr, int len);
 void print_array(ElEMTYPE * arr, int len);
+void insertion_sort(ElEMTYPE * arr, int len);
+void shell_sort(ElEMTYPE * arr, int len);
 
 #endif	/* SORTING_H */
 
