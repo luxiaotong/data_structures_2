@@ -57,19 +57,29 @@ int main(int argc, char** argv) {
 	
 	#include "sorting.h"
 	
-	//insertion sort
+	
 	/*
+	//insertion sort
 	int arr [] = {34, 8, 64, 51, 32, 21};
 	int len = sizeof(arr) / sizeof(arr[0]);
 	insertion_sort(arr, len);
 	print_array(arr, len);
 	*/
 	
+	/*
 	//shell sort
 	int arr [] = {81, 94, 11, 96, 12, 35, 17, 95, 28, 58, 41, 75, 15};
 	int len = sizeof(arr) / sizeof(arr[0]);
 	shell_sort(arr, len);
 	print_array(arr, len);
+	*/
+	
+	//heap sort
+	int arr [] = {0, 31, 41, 59, 26, 53, 58, 97};
+	int len = sizeof(arr) / sizeof(arr[0]);
+	print_heap(arr, len);
+	heap_sort(arr, len);
+	print_heap(arr, len);
 	
 #endif
 	//git fetch https://github.com/luxiaotong/data_structures_2.git

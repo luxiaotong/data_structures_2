@@ -2,7 +2,7 @@
 
 
 
-void print_array(ElEMTYPE * arr, int len)
+void print_array(ELEMTYPE * arr, int len)
 {
 	int i = 0;
 	for ( i = 0; i < len; i ++ ) {
@@ -11,10 +11,10 @@ void print_array(ElEMTYPE * arr, int len)
 	printf("\n");
 }
 
-void insertion_sort(ElEMTYPE * arr, int len)
+void insertion_sort(ELEMTYPE * arr, int len)
 {
 	int i = 0, j = 0;
-	ElEMTYPE tmp = 0;
+	ELEMTYPE tmp = 0;
 	int pos = 0;
 	for ( i = 1; i < len; i ++ ) {
 		tmp = arr[i];
@@ -28,7 +28,7 @@ void insertion_sort(ElEMTYPE * arr, int len)
 	return;
 }
 
-void shell_sort(ElEMTYPE * arr, int len)
+void shell_sort(ELEMTYPE * arr, int len)
 {
 	int N = len;
 	int i = 0, j = 0, k = 0, tmp = 0, pos = 0;
@@ -48,5 +48,102 @@ void shell_sort(ElEMTYPE * arr, int len)
 		print_array(arr, len);
 	}
 	
+	return;
+}
+
+//build heap, max in top
+void build_heap(ELEMTYPE * arr, int len, int start)
+{
+	int i = 0, tmp = 0, big_one = 0;
+	if ( 2 * start + 1 > len ) {
+		return;
+	}
+	for ( i = start; i > 0; i -- ) {
+		if ( 2 * i + 1 > len ) { //just one left child
+			if ( arr[i] < arr[2 * i] ) {
+				swap_in_heap(arr, i, 2 * i);
+				build_heap(arr, len, 2 * i);
+			}
+		} else { //two children
+			big_one = max_in_heap(arr, 2 * i, 2 * i + 1);
+			if ( arr[i] < arr[big_one] ) {
+				swap_in_heap(arr, i, big_one);
+				build_heap(arr, len, big_one);
+			}
+		}
+	}
+}
+
+void heap_sort(ELEMTYPE * arr, int len)
+{
+	build_heap(arr, len, ( len - 1 ) / 2);
+	delete_max(arr, len);
+}
+
+void swap_in_heap(ELEMTYPE * arr, int a, int b)
+{
+	ELEMTYPE tmp;
+	tmp = arr[a];
+	arr[a] = arr[b];
+	arr[b] = tmp;
+	return;
+}
+
+int max_in_heap(ELEMTYPE * arr, int a, int b)
+{
+	return arr[a] > arr[b] ? a : b;
+}
+
+void print_heap(ELEMTYPE * arr, int len)
+{
+	int i = 0;
+	int current = 0, level = 0;
+	for (i = 1; i < len; i ++ ) {
+		printf("%d ", arr[i]);
+		current ++;
+		if ( current == pow(2, level) ) {
+			current = 0;
+			level ++;
+			printf("\n");
+		}
+	}
+	printf("\n");
+	return;
+}
+
+int is_even(int x)
+{
+	if((x & 1) == 0)
+		return 1;
+	else
+		return 0;
+}
+
+void delete_max(ELEMTYPE * arr, int len)
+{
+	int sorted_count = 0;
+	int tmp = 0, i = 0, max_pos = 0, heap_len = len - 1;
+	while ( sorted_count < len - 1 ) {
+		tmp = arr[1];
+		for ( i = 1; 2 * i <= heap_len;  ) {
+			if ( 2 * i + 1 > heap_len ) {
+				arr[i] = arr[2 * i];
+				i = 2 * i;
+			} else {
+				max_pos = max_in_heap(arr, 2 * i, 2 * i + 1);
+				arr[i] = arr[max_pos];
+				i = max_pos;
+			}
+		}
+		
+		for ( ; i + 1 < len; i ++ ) {
+			arr[i] = arr[i + 1];
+		}
+		
+		arr[i] = tmp;
+		sorted_count ++;
+		heap_len --;
+		
+	}
 	return;
 }

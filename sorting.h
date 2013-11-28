@@ -10,12 +10,19 @@
 
 #include<stdlib.h>
 
-#define ElEMTYPE int
+#define ELEMTYPE int
 
 
-void print_array(ElEMTYPE * arr, int len);
-void insertion_sort(ElEMTYPE * arr, int len);
-void shell_sort(ElEMTYPE * arr, int len);
+void print_array(ELEMTYPE * arr, int len);
+void insertion_sort(ELEMTYPE * arr, int len);
+void shell_sort(ELEMTYPE * arr, int len);
+void build_heap(ELEMTYPE * arr, int len, int start);//build heap, max in top
+void heap_sort(ELEMTYPE * arr, int len);
+void swap_in_heap(ELEMTYPE * arr, int a, int b);
+int max_in_heap(ELEMTYPE * arr, int a, int b);
+void print_heap(ELEMTYPE * arr, int len);
+int is_even(int x);
+void delete_max(ELEMTYPE * arr, int len);
 
 #endif	/* SORTING_H */
 
