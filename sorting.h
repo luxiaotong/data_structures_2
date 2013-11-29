@@ -27,5 +27,7 @@ void delete_max(ELEMTYPE * arr, int len);
 void merge_sort(ELEMTYPE * arr, int len);
 ELEMTYPE * merge_array(ELEMTYPE * arr, int first, int mid, int last, ELEMTYPE * tmp);
 
+void quick_sort(ELEMTYPE * arr, int low, int high);
+
 #endif	/* SORTING_H */
 

@@ -84,12 +84,20 @@ int main(int argc, char** argv) {
 	*/
 	
 	//merge sort
+	/*
 	int arr [] = {24, 13, 26, 1, 2, 27, 38, 15};
 	int len = sizeof(arr) / sizeof(arr[0]);
 	print_array(arr, len);
 	merge_sort(arr, len);
 	print_array(arr, len);
+	*/
 	
+	//quick sort
+	int arr [] = {24, 13, 26, 1, 2, 27, 38, 15};
+	int len = sizeof(arr) / sizeof(arr[0]);
+	print_array(arr, len);
+	quick_sort(arr, 0, len - 1);
+	print_array(arr, len);
 	
 #endif
 	//git fetch https://github.com/luxiaotong/data_structures_2.git

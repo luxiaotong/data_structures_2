@@ -149,3 +149,11 @@ ELEMTYPE * merge_array(ELEMTYPE * arr, int first, int mid, int last, ELEMTYPE * 
 	
 	return tmp;
 }
+
+
+void quick_sort(ELEMTYPE * arr, int low, int high)
+{
+	
+	return arr;
+}
+
