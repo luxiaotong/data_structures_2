@@ -74,12 +74,22 @@ int main(int argc, char** argv) {
 	print_array(arr, len);
 	*/
 	
+	/*
 	//heap sort
 	int arr [] = {0, 31, 41, 59, 26, 53, 58, 97};
 	int len = sizeof(arr) / sizeof(arr[0]);
 	print_heap(arr, len);
 	heap_sort(arr, len);
 	print_heap(arr, len);
+	*/
+	
+	//merge sort
+	int arr [] = {24, 13, 26, 1, 2, 27, 38, 15};
+	int len = sizeof(arr) / sizeof(arr[0]);
+	print_array(arr, len);
+	merge_sort(arr, len);
+	print_array(arr, len);
+	
 	
 #endif
 	//git fetch https://github.com/luxiaotong/data_structures_2.git

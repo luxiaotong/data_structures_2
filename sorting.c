@@ -111,19 +111,10 @@ void print_heap(ELEMTYPE * arr, int len)
 	return;
 }
 
-int is_even(int x)
-{
-	if((x & 1) == 0)
-		return 1;
-	else
-		return 0;
-}
-
 void delete_max(ELEMTYPE * arr, int len)
 {
-	int sorted_count = 0;
 	int tmp = 0, i = 0, max_pos = 0, heap_len = len - 1;
-	while ( sorted_count < len - 1 ) {
+	while ( heap_len > 0 ) {
 		tmp = arr[1];
 		for ( i = 1; 2 * i <= heap_len;  ) {
 			if ( 2 * i + 1 > heap_len ) {
@@ -141,9 +132,20 @@ void delete_max(ELEMTYPE * arr, int len)
 		}
 		
 		arr[i] = tmp;
-		sorted_count ++;
 		heap_len --;
-		
 	}
 	return;
+}
+
+void merge_sort(ELEMTYPE * arr, int len)
+{
+	ELEMTYPE tmp[len];
+	arr = merge_array(arr, 0, len/2, len - 1, tmp);
+	return;
+}
+
+ELEMTYPE * merge_array(ELEMTYPE * arr, int first, int mid, int last, ELEMTYPE * tmp){
+	
+	
+	return tmp;
 }
